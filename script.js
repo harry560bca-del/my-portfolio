@@ -1,18 +1,15 @@
-// Typing effect
-var typed = new Typed("#typing", {
-  strings: ["Aspiring Developer", "Java Enthusiast", "Python Coder", "Web Developer"],
-  typeSpeed: 60,
-  backSpeed: 40,
-  loop: true
-});
+// Typewriter effect for tagline
+const text = "Aspiring Developer | Java | Python | Web Dev";
+let index = 0;
 
-// Particles.js background
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 80 },
-    "size": { "value": 3 },
-    "move": { "speed": 2 },
-    "line_linked": { "enable": true }
+function type() {
+  const typingElement = document.getElementById("typing");
+  typingElement.innerHTML = text.slice(0, index);
+  index++;
+  if (index > text.length) {
+    index = 0;
   }
-});
+  setTimeout(type, 150);
+}
 
+type();
