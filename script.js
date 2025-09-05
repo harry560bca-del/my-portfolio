@@ -1,15 +1,8 @@
-// Typewriter effect for tagline
-const text = "Aspiring Developer | Java | Python | Web Dev";
-let index = 0;
-
-function type() {
-  const typingElement = document.getElementById("typing");
-  typingElement.innerHTML = text.slice(0, index);
-  index++;
-  if (index > text.length) {
-    index = 0;
-  }
-  setTimeout(type, 150);
+const text = "Aspiring Developer • Java • Python • Web Dev";
+let i = 0;
+function typeWriter() {
+  document.getElementById("typing").innerText = text.slice(0, i) + (i % 2 ? "|" : "");
+  i = (i + 1) % (text.length + 1);
+  setTimeout(typeWriter, 150);
 }
-
-type();
+typeWriter();
